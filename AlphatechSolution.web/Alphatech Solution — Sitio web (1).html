@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alphatech Solution | Tu tecnología en buenas manos</title>
+<style>
+:root {
+  --site-primary: #102a43;
+  --site-secondary: #13b8a6;
+  --site-background: #f3f7fa;
+  --site-on-primary: #ffffff;
+  --site-on-secondary: #062c2a;
+  --site-on-background: #152536;
+  --site-font-body: Inter, "Segoe UI", Arial, sans-serif;
+  --site-font-heading: Inter, "Segoe UI", Arial, sans-serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+  color-scheme: light dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--site-font-body); background: light-dark(#f3f7fa, #0a1520); color: light-dark(#152536, #eaf2f8); }
+#app { min-height: 100vh; width: 100%; border-radius: 0; background-color: var(--site-background); color: var(--site-on-background); overflow: hidden; }
+.container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+header { background: var(--site-primary); color: var(--site-on-primary); position: relative; z-index: 2; }
+.nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.brand { display: flex; align-items: center; gap: 11px; color: inherit; text-decoration: none; font-weight: 800; letter-spacing: -.4px; }
+.brand-mark { display: grid; place-items: center; width: 43px; height: 43px; border: 2px solid var(--site-secondary); border-radius: 12px; color: var(--site-secondary); font-size: 23px; }
+.brand-name { font-size: 18px; line-height: 1.05; }
+.brand-name small { display: block; margin-top: 5px; font-size: 10px; font-weight: 600; letter-spacing: 2.2px; opacity: .8; }
+nav { display: flex; gap: 24px; align-items: center; }
+nav a { color: inherit; text-decoration: none; font-size: 13px; font-weight: 650; opacity: .9; }
+nav a:hover { color: var(--site-secondary); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: calc(12px * var(--site-radius-scale)); padding: 13px 18px; background: var(--site-secondary); color: var(--site-on-secondary); font-weight: 800; text-decoration: none; cursor: pointer; transition: transform .15s ease, opacity .15s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn-outline { background: transparent; color: inherit; border: 1px solid currentColor; }
+.hero { position: relative; padding: 86px 0 78px; background: var(--site-primary); color: var(--site-on-primary); }
+.hero:after { content: ''; position: absolute; width: 380px; height: 380px; border: 1px solid rgba(19,184,166,.32); border-radius: 50%; right: -100px; top: -145px; box-shadow: 0 0 0 48px rgba(19,184,166,.06), 0 0 0 96px rgba(19,184,166,.04); opacity: var(--site-decoration-opacity); pointer-events: none; }
+.hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 54px; align-items: center; position: relative; z-index: 1; }
+.eyebrow { color: var(--site-secondary); font-size: 12px; text-transform: uppercase; letter-spacing: 2px; font-weight: 850; }
+h1,h2,h3 { font-family: var(--site-font-heading); line-height: 1.1; letter-spacing: -1.3px; }
+h1 { font-size: calc(clamp(38px, 5vw, 62px) * var(--site-heading-scale)); margin: 18px 0; }
+h1 span { color: var(--site-secondary); }
+.hero p { max-width: 590px; color: #d2e1ed; font-size: 17px; line-height: 1.75; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.hero-art { min-height: 300px; display: grid; place-items: center; position: relative; }
+.device-card { width: min(330px, 100%); padding: 25px; border: 1px solid rgba(255,255,255,.18); border-radius: 24px; background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.035)); box-shadow: 0 24px 70px rgba(0,0,0,.18); transform: rotate(2deg); }
+.monitor { height: 160px; border: 8px solid #071724; border-radius: 13px; background: linear-gradient(135deg, #123d58, #176c78 55%, #16b9a5); display: grid; place-items: center; color: white; font-size: 58px; }
+.monitor-base { width: 90px; height: 10px; margin: 0 auto; background: #071724; border-radius: 0 0 7px 7px; }
+.device-caption { margin-top: 18px; display: flex; justify-content: space-between; color: #dcebf4; font-size: 12px; }
+.trust-row { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 32px; color: #d2e1ed; font-size: 12px; }
+.trust-row span:before { content: '✓'; color: var(--site-secondary); font-weight: 900; margin-right: 7px; }
+section { padding: 76px 0; }
+.section-head { max-width: 650px; margin-bottom: 34px; }
+.section-head h2 { font-size: calc(clamp(30px, 3vw, 42px) * var(--site-heading-scale)); margin: 12px 0; }
+.section-head p { color: light-dark(#526579, #bac8d5); line-height: 1.7; }
+.services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.service { background: light-dark(#ffffff, #132333); border: 1px solid light-dark(#e0e9ef, #263c4e); border-radius: calc(18px * var(--site-radius-scale)); padding: 25px; box-shadow: 0 9px 28px rgba(15,42,67,.045); }
+.service-icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 14px; background: color-mix(in srgb, var(--site-secondary) 16%, transparent); color: var(--site-secondary); font-size: 24px; }
+.service h3 { margin: 18px 0 10px; font-size: 21px; letter-spacing: -.5px; }
+.service p { margin: 0; color: light-dark(#586b7c, #bac8d5); font-size: 14px; line-height: 1.7; }
+.service ul { padding-left: 18px; color: light-dark(#586b7c, #bac8d5); font-size: 13px; line-height: 1.9; }
+.why { background: light-dark(#e7f0f5, #0d1e2c); }
+.founder { display: grid; grid-template-columns: .75fr 1.25fr; gap: 38px; align-items: center; margin-top: 34px; }
+.founder-card { padding: 30px; background: var(--site-primary); color: white; border-radius: calc(22px * var(--site-radius-scale)); }
+.founder-avatar { width: 100%; max-width: 270px; aspect-ratio: 4 / 5; display: block; border-radius: 18px; border: 2px solid var(--site-secondary); object-fit: cover; object-position: center 35%; margin-bottom: 22px; }
+.founder-card p { color: #d2e1ed; line-height: 1.7; }
+.founder-copy { line-height: 1.8; color: light-dark(#526579, #bac8d5); }
+.founder-signature { color: var(--site-primary); font-weight: 800; }
+.why-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 55px; align-items: center; }
+.why-panel { padding: 28px; border-radius: 22px; background: var(--site-primary); color: white; }
+.why-panel h3 { font-size: 25px; }
+.why-panel p { color: #d2e1ed; line-height: 1.7; }
+.points { display: grid; gap: 18px; }
+.point { display: flex; gap: 14px; }
+.point-icon { flex: 0 0 38px; height: 38px; display: grid; place-items: center; background: color-mix(in srgb, var(--site-secondary) 18%, transparent); color: var(--site-secondary); border-radius: 12px; font-weight: 900; }
+.point h3 { font-size: 17px; letter-spacing: -.3px; margin: 0 0 5px; }
+.point p { margin: 0; color: light-dark(#586b7c, #bac8d5); font-size: 14px; line-height: 1.6; }
+.contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; }
+.contact-copy p { color: light-dark(#586b7c, #bac8d5); line-height: 1.7; }
+.contact-item { display: flex; gap: 12px; align-items: center; margin: 18px 0; }
+.contact-item strong { display: block; font-size: 13px; }
+.contact-item small { color: light-dark(#586b7c, #bac8d5); }
+.contact-form { padding: 26px; background: light-dark(#f7fafc, #132333); border: 1px solid light-dark(#e0e9ef, #263c4e); border-radius: 20px; }
+label { display: block; font-size: 12px; font-weight: 750; margin-bottom: 7px; }
+input, select, textarea { width: 100%; border: 1px solid light-dark(#d5e0e8, #354b5e); background: light-dark(#fff, #0b1b28); color: inherit; border-radius: 10px; padding: 12px; font: inherit; margin-bottom: 15px; outline-color: var(--site-secondary); }
+textarea { resize: vertical; min-height: 105px; }
+.contact-form .btn { width: 100%; }
+.form-note { font-size: 11px; color: light-dark(#63788a, #bac8d5); line-height: 1.5; margin: 12px 0 0; }
+footer { padding: 28px 0; background: #081a29; color: #c7d6e2; }
+.footer-row { display: flex; justify-content: space-between; gap: 18px; align-items: center; flex-wrap: wrap; font-size: 12px; }
+.footer-row strong { color: white; }
+.socials { display: flex; gap: 15px; flex-wrap: wrap; }
+.socials a { color: #c7d6e2; text-decoration: none; }
+.socials a:hover { color: var(--site-secondary); }
+@media (max-width: 800px) { nav { display: none; } .hero { padding: 60px 0; } .hero-grid, .why-grid, .contact-grid, .founder { grid-template-columns: 1fr; gap: 28px; } .hero-art { min-height: 240px; } .services { grid-template-columns: 1fr 1fr; } section { padding: 58px 0; } }
+@media (max-width: 540px) { .container { width: min(100% - 28px, 1120px); } .services { grid-template-columns: 1fr; } .hero-actions .btn { width: 100%; } .trust-row { gap: 12px; } }
+</style>
+</head>
+<body>
+<div id="app">
+<header>
+  <div class="container nav">
+    <a class="brand" href="#inicio" aria-label="Alphatech Solution inicio"><span class="brand-mark">A<span style="font-size:14px">+</span></span><span class="brand-name">ALPHATECH <span style="color:var(--site-secondary)">SOLUTION</span><small>TECNOLOGÍA Y SOPORTE</small></span></a>
+    <nav aria-label="Navegación principal"><a href="#servicios">Servicios</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a></nav>
+    <a class="btn" href="#contacto">Solicitar servicio ↗</a>
+  </div>
+</header>
+<main>
+<section class="hero" id="inicio">
+ <div class="container hero-grid">
+  <div><div class="eyebrow">Soluciones tecnológicas con confianza</div><h1>Tu tecnología,<br><span>en buenas manos.</span></h1><p>En Alphatech Solution te ayudamos a mantener tus equipos funcionando. Atención cercana, soluciones prácticas y soporte para tu día a día.</p>
+   <div class="hero-actions"><a class="btn" href="#contacto">Quiero solicitar ayuda ↗</a><a class="btn btn-outline" href="#servicios">Ver servicios</a></div>
+   <div class="trust-row"><span>Atención personalizada</span><span>Servicio responsable</span><span>Soluciones prácticas</span></div>
+  </div>
+  <div class="hero-art" aria-label="Ilustración de equipo tecnológico"><div class="device-card"><div class="monitor">⚙️</div><div class="monitor-base"></div><div class="device-caption"><span>ALPHATECH SUPPORT</span><span>● ONLINE</span></div></div></div>
+ </div>
+</section>
+<section id="servicios"><div class="container"><div class="section-head"><div class="eyebrow">¿En qué podemos ayudarte?</div><h2>Soluciones para que sigas conectado.</h2><p>Desde el mantenimiento preventivo hasta la instalación de programas, trabajamos para que aproveches mejor tu tecnología.</p></div>
+ <div class="services">
+  <article class="service"><div class="service-icon">🖳</div><h3>Computadoras y laptops</h3><p>Mantenimiento y soporte para que tu equipo funcione de forma confiable.</p><ul><li>Mantenimiento preventivo y correctivo</li><li>Diagnóstico de fallas</li><li>Instalación de sistemas operativos</li><li>Instalación de programas y paquetes Office</li></ul></article>
+  <article class="service"><div class="service-icon">🖥</div><h3>Teléfonos y tablets</h3><p>Ayuda técnica para tus dispositivos móviles, con atención clara y personalizada.</p><ul><li>Revisión y diagnóstico</li><li>Soluciones de software</li><li>Orientación sobre el estado del equipo</li></ul></article>
+  <article class="service"><div class="service-icon">🖨</div><h3>Impresoras</h3><p>Cuida tus impresiones y evita que los pequeños problemas detengan tu trabajo.</p><ul><li>Limpieza y mantenimiento</li><li>Revisión de funcionamiento</li><li>Soporte y diagnóstico</li></ul></article>
+ </div></div></section>
+<section class="why" id="nosotros"><div class="container why-grid"><div class="why-panel"><div class="eyebrow">Alphatech Solution</div><h3>La tecnología debe ayudarte, no complicarte.</h3><p>Queremos que tengas un lugar de confianza al que acudir cuando tus equipos necesiten atención. Te explicamos las opciones con claridad y buscamos una solución adecuada a tu necesidad.</p><a class="btn" href="#contacto">Hablemos de tu equipo ↗</a></div>
+ <div><div class="section-head"><div class="eyebrow">Nuestra forma de trabajar</div><h2>Servicio técnico con trato humano.</h2><p>Cada equipo y cada persona tienen necesidades distintas. Por eso priorizamos la comunicación y una atención responsable.</p></div><div class="points"><div class="point"><div class="point-icon">✓</div><div><h3>Comunicación clara</h3><p>Te explicamos el problema y las opciones antes de continuar.</p></div></div><div class="point"><div class="point-icon">⌁</div><div><h3>Atención personalizada</h3><p>Escuchamos lo que necesitas para orientarte mejor.</p></div></div><div class="point"><div class="point-icon">⚙</div><div><h3>Enfoque en soluciones</h3><p>Buscamos que tu equipo vuelva a ser útil para tus estudios, trabajo o negocio.</p></div></div></div></div></div>
+ <div class="container founder" id="fundador"><div class="founder-card"><img class="founder-avatar" src="C:\Users\Usuario\Downloads\c\hola.jpeg" alt="José Alberto Alvarado Castillo, fundador de Alphatech Solution"><div class="eyebrow">Detrás de Alphatech Solution</div><h3>José Alberto Alvarado Castillo</h3><p>Fundador de Alphatech Solution · 19 años</p><p>Técnico en Informática · Técnico en Redes · Especialista en Integración de Servicios IoT</p></div><div><div class="eyebrow">Conoce al fundador</div><h2>Una pasión por reparar que se convirtió en un proyecto.</h2><p class="founder-copy">¡Hola! Soy José Alberto Alvarado Castillo, tengo 19 años y soy el fundador de Alphatech Solution. Desde pequeño me ha gustado desarmar equipos, descubrir cómo funcionan y buscar la manera de arreglarlos. Esa curiosidad por la tecnología fue creciendo hasta convertirse en una pasión y en el deseo de ayudar a otras personas con sus dispositivos.</p><p class="founder-copy">Soy técnico en Informática, técnico en Redes y especialista en Integración de Servicios IoT. Con Alphatech Solution quiero poner mis conocimientos al servicio de las personas, ofreciendo una atención cercana, explicaciones claras y un trato responsable para cada equipo.</p><p class="founder-copy">Creo que la confianza se gana con honestidad, escuchando al cliente y explicando las opciones antes de realizar un trabajo. Gracias por visitar mi página y considerar mi negocio para ayudarte con tu tecnología.</p><p class="founder-signature">José Alberto Alvarado Castillo<br>Fundador · Alphatech Solution</p><a class="btn" href="#contacto">Conversemos por tu equipo ↗</a></div></div></section>
+<section id="contacto"><div class="container contact-grid"><div class="contact-copy"><div class="eyebrow">Estamos para ayudarte</div><h2 style="font-size:calc(clamp(30px,3vw,42px) * var(--site-heading-scale)); margin:12px 0">¿Tu equipo necesita atención?</h2><p>Escríbenos y cuéntanos qué sucede. Te responderemos para orientarte sobre el siguiente paso.</p>
+ <div class="contact-item"><div class="service-icon">𝕨𝕒</div><div><strong>WhatsApp</strong><small>3254-1741</small></div></div>
+ <div class="contact-item"><div class="service-icon">𝕚𝕘</div><div><strong>Instagram</strong><small>@alphatech.solutionhn</small></div></div>
+ <div class="contact-item"><div class="service-icon">𝕗</div><div><strong>Facebook</strong><small>AlphatechSolutionhn</small></div></div>
+ <div class="contact-item"><div class="service-icon">𝕥𝕜</div><div><strong>TikTok</strong><small>@alphatech.solutio3</small></div></div>
+ <p style="font-size:12px">X / Twitter: @alphatechHn</p>
+ </div>
+ <form class="contact-form" id="contactForm"><h3 style="margin-top:0">Cuéntanos qué necesitas</h3><label for="nombre">Tu nombre</label><input id="nombre" name="nombre" placeholder="¿Cómo te llamas?" required><label for="servicio">Servicio de interés</label><select id="servicio" name="servicio" required><option value="">Selecciona un servicio</option><option>Computadoras y laptops</option><option>Teléfonos y tablets</option><option>Impresoras</option><option>Instalación de programas</option><option>Otro / necesito orientación</option></select><label for="mensaje">¿Qué sucede con tu equipo?</label><textarea id="mensaje" name="mensaje" placeholder="Cuéntanos brevemente el problema..."></textarea><button class="btn" type="submit">Enviar consulta por WhatsApp ↗</button><p class="form-note">Al enviar, se abrirá WhatsApp con tu consulta preparada para que puedas revisarla antes de mandarla. No se envía nada automáticamente.</p></form>
+ </div></section>
+</main>
+<footer><div class="container footer-row"><div><strong>ALPHATECH SOLUTION</strong><br>Tu tecnología en buenas manos.</div><div class="socials"><a href="https://instagram.com/alphatech.solutionhn" target="_blank" rel="noreferrer">Instagram</a><a href="https://facebook.com/alphatechSolutionhn" target="_blank" rel="noreferrer">Facebook</a><a href="https://tiktok.com/@alphatech.solutio3" target="_blank" rel="noreferrer">TikTok</a><a href="https://x.com/alphatechHn" target="_blank" rel="noreferrer">X</a></div><div>© <span id="year">2026</span> Alphatech Solution</div></div></footer>
+</div>
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const name = document.getElementById('nombre').value.trim();
+  const service = document.getElementById('servicio').value;
+  const message = document.getElementById('mensaje').value.trim();
+  const text = `Hola, Alphatech Solution. Mi nombre es ${name}. Me interesa el servicio de: ${service}. ${message ? 'Detalles: ' + message : 'Quisiera recibir más información.'}`;
+  window.open('https://wa.me/50432541741?text=' + encodeURIComponent(text), '_blank', 'noopener,noreferrer');
+});
+</script>
+</body>
+</html>
